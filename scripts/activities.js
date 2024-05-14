@@ -151,3 +151,18 @@ categorys.addEventListener("change", (e) => {
     });
   }
 });
+// only get activites once
+const activites = document.querySelector("#activities");
+
+activites.addEventListener("change", (e) => {
+  const div = document.querySelector("#activities-container");
+  if (e.target.value) {
+    activities.forEach((activite) => {
+      let ChildDiv = document.createElement("p");
+      ChildDiv.textContent = activite.description;
+      ChildDiv.value = activite.name;
+      ChildDiv.id = activite.id;
+      div.appendChild(ChildDiv);
+    });
+  }
+});
